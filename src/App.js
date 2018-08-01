@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-
+import React from 'react'
+import ToDo from './ToDoList/ToDo'
 
 const App = () => (
   <div>
@@ -7,4 +7,4 @@ const App = () => (
   </div>
 )
 
-export default App;
+export default App

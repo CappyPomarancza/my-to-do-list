@@ -2,8 +2,9 @@ import React from 'react'
 
 
 class ToDo extends React.Component {
-    state = {[
-        {isCompeleted: false, text: 'umyj dupe', key: '585'},
+    state = {
+        tasks: [
+        {isCompeleted: false, text: 'umyj zęby', key: '585'},
     ],
     newTaskText: ''
 
@@ -23,4 +24,4 @@ class ToDo extends React.Component {
 
 }
 
-export default ToDo 
+export default ToDo
