@@ -3,7 +3,7 @@ import ToDo from './ToDoList/ToDo'
 
 const App = () => (
   <div>
-
+    <ToDo/>
   </div>
 )
 
