@@ -1,5 +1,6 @@
 import React from 'react'
 import Task from './Task'
+import MyPaper from './MyPaper'
 
 
 const List = (props) => (
@@ -7,10 +8,10 @@ const List = (props) => (
         {
             props.taskList.map(
                 (task, index) => (
-                    <Task 
+                    <Task
                         task={task}
                         key={task.key}
-                        />
+                    />
                 )
             )
         }

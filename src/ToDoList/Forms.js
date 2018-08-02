@@ -9,7 +9,7 @@ const Forms = (props) => (
             fullWidth={true}
             onChange={props.onNewTaskTextChanged}
             type={"text"}
-           //placeholder={'Wpisz swoje zadanie'}
+            placeholder={'Wpisz swoje zadanie'}
             value={props.newTaskText}
         />
 
