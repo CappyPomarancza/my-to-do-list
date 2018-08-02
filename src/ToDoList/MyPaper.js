@@ -8,7 +8,8 @@ const styles ={
 }
 
 const MyPaper = (props) => (
-    <Paper
+    <Paper 
+        elevation={9}
         style={styles}
     >
         {props.children}

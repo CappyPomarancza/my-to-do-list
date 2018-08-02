@@ -4,9 +4,9 @@ import MyPaper from './MyPaper'
 
 
 const List = (props) => (
-    <div>
+    <MyPaper>
         {
-            props.taskList.map(
+            props.tasksList.map(
                 (task, index) => (
                     <Task
                         task={task}
@@ -15,6 +15,6 @@ const List = (props) => (
                 )
             )
         }
-    </div>
+    </MyPaper>
 )
 export default List 
