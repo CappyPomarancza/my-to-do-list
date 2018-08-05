@@ -20,7 +20,7 @@ class ToDo extends React.Component {
         })
     }
 
-    completedTask = () => {
+    completedTask = (props) => {
         this.setState({
             isCompeleted: true
         })
