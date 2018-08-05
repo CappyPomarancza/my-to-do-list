@@ -3,13 +3,13 @@ import Paper from 'material-ui/Paper'
 
 
 const styles ={
-    margin: '20px',
-    padding: '20px'
+    margin: '50px',
+    padding: '50px'
 }
 
 const MyPaper = (props) => (
     <Paper 
-        elevation={9}
+        elevation={14}
         style={styles}
     >
         {props.children}
