@@ -38,13 +38,15 @@ class ToDo extends React.Component {
     }
 
     componentDidMount() {
-        const lastState = JSON.parse(localStorage.getItem('Cappy-app-my-todo-list'))
+        const lastState = JSON.parse(localStorage.getItem('Cappy-ToDo-List'))
+    
         if (lastState === null) return
+    
         this.setState(lastState)
     }
-
-    componentWillMount() {
-        localStorage.setItem('Cappy-app-my-todo-list', JSON.stringify(this.state))
+    
+    componentDidUpdate() {
+        localStorage.setItem('Cappy-ToDo-List', JSON.stringify(this.state))
     }
 
     searchPhraseChangeHandler = (event) => {
@@ -55,7 +57,7 @@ class ToDo extends React.Component {
 
 
     render() {
-        this.componentWillMount()
+       // this.componentWillMount()
         return (
             <div>
                 <Search
