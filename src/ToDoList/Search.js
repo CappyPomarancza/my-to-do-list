@@ -5,7 +5,7 @@ import MyPaper from './MyPaper';
 const Search = (props)=>(
     <MyPaper>
     <TextField 
-        placeholder={'Search'}
+        placeholder={'Szukaj'}
         fullWidth={true}
         onChange={props.mojaNazwaPropsa}
         value={props.dupa}
