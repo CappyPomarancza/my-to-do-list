@@ -7,8 +7,8 @@ import Search from './Search';
 class ToDo extends React.Component {
     state = {
         tasks: [
-            // { isCompeleted: false, text: 'umyj zęby(test)', key: '585' },
-            //{ isCompeleted: false, text: 'umyj zęby(test2)', key: '505' }
+            { isCompeleted: false, text: 'umyj zęby(test)', key: '585' },
+            { isCompeleted: false, text: 'umyj zęby(test2)', key: '505' }
         ],
         newTaskText: ''
 
@@ -17,6 +17,12 @@ class ToDo extends React.Component {
     onNewTaskTextChanged = (event, value) => {
         this.setState({
             newTaskText: value
+        })
+    }
+
+    completedTask = () => {
+        this.setState({
+            isCompeleted: true
         })
     }
 
