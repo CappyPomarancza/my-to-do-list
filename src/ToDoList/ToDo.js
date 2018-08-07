@@ -7,11 +7,10 @@ import Search from './Search';
 class ToDo extends React.Component {
     state = {
         tasks: [
-            { isCompeleted: false, text: 'umyj zęby(test)', key: '585' },
-            { isCompeleted: false, text: 'umyj zęby(test2)', key: '505' }
+            { isCompleted: true, text: 'umyj zęby(test)', key: '585' },
+            { isCompleted: false, text: 'umyj zęby(test2)', key: '505' }
         ],
         newTaskText: ''
-
     }
 
     onNewTaskTextChanged = (event, value) => {
@@ -20,9 +19,18 @@ class ToDo extends React.Component {
         })
     }
 
-    completedTask = (props) => {
+    toggleTask = (key) => {
         this.setState({
-            isCompeleted: true
+            tasks: this.state.tasks.map(task => {
+                if(task.key === key){
+                    return {
+                        ...task,
+                        isCompleted: !task.isCompleted
+                    }
+                }else{
+                    return task
+                }
+            })
         })
     }
 
@@ -71,6 +79,7 @@ class ToDo extends React.Component {
                 />
                 <List
                     tasksList={this.state.tasks}
+                    toggleTask = {this.toggleTask}
                 />
             </div>
         )

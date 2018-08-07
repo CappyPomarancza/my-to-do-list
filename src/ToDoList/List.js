@@ -9,6 +9,7 @@ const List = (props) => (
             props.tasksList.map(
                 (task, index) => (
                     <Task
+                        toggleTask={props.toggleTask}
                         task={task}
                         key={task.key}
                     />
