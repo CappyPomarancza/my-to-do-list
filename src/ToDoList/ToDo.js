@@ -2,6 +2,7 @@ import React from 'react'
 import Forms from './Forms'
 import List from './List'
 import Search from './Search';
+import MyPaper from './MyPaper';
 
 
 class ToDo extends React.Component {
@@ -10,7 +11,8 @@ class ToDo extends React.Component {
             { isCompleted: true, text: 'umyj zęby(test)', key: '585' },
             { isCompleted: false, text: 'umyj zęby(test2)', key: '505' }
         ],
-        newTaskText: ''
+        newTaskText: '',
+        searchPhrase: ''
     }
 
     onNewTaskTextChanged = (event, value) => {
@@ -54,34 +56,63 @@ class ToDo extends React.Component {
     }
     
     componentDidUpdate() {
-        localStorage.setItem('Cappy-ToDo-List', JSON.stringify(this.state))
+        localStorage.setItem('Cappy-ToDo-List', JSON.stringify({
+            tasks: this.state.tasks
+        }))
     }
 
-    searchPhraseChangeHandler = (event) => {
+    searchPhraseChangeHandler = (event,newValue) => {
         this.setState({
-            searchPhrase: event.target.value
+            searchPhrase: newValue
         })
     }
 
 
     render() {
-       // this.componentWillMount()
+        const searchNamesInNewArray = array => {
+            let searchNames = [];
+       
+            if (this.state.searchPhrase === "") {
+              searchNames = [];
+            } else {
+              searchNames = array
+                .map(element => element)
+                .filter(
+                  element =>
+                    element.text.toUpperCase().indexOf(this.state.searchPhrase) >=
+                      0 ||
+                    element.text.toLowerCase().indexOf(this.state.searchPhrase) >= 0
+                );
+            }
+       
+            return searchNames;
+          };
+
+
+
+
         return (
-            <div>
+            <MyPaper>
+                <MyPaper>
                 <Search
-                    //dupa={this.state.searchPharse}
-                    mojaNazwaPropsa={this.searchPhraseChangeHandler}
+                   searchPhraseChangeHandler={this.searchPhraseChangeHandler}
+                   searchPhrase={this.searchPhrase}
                 />
+                <List
+                    tasksList={searchNamesInNewArray(this.state.tasks)}
+                />
+                </MyPaper>
                 <Forms
                     newTaskText={this.state.newTaskText}
                     onNewTaskTextChanged={this.onNewTaskTextChanged}
                     onAddNewTaskClickHandler={this.onAddNewTaskClickHandler}
                 />
+                
                 <List
                     tasksList={this.state.tasks}
                     toggleTask = {this.toggleTask}
                 />
-            </div>
+            </MyPaper>
         )
     }
 
